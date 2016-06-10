@@ -10,7 +10,7 @@
         background: #683838;
         margin: 0;
     }
-    
+
     code {
         font-family: "Menlo", "American Typewriter", "Courier New", monospace;
         font-size: 0.71em;
@@ -144,7 +144,7 @@
     cite a {
         text-decoration: none;
     }
-    
+
     </style>
 </head>
 
@@ -186,7 +186,7 @@
     <li>C#, ASP.NET MVC 4/5, WebApi, Entity Framework, WCF,</li>
     <li>Java, Java Enterprise Edition, Scala, SQL, PL/SQL,</li>
     <li>Haskell, Yesod, Persistent, Aeson, criterion, statistics,</li>
-    <li>HTML5, CSS, JavaScript, jQuery, Angular.js, Dojo Toolkit, Node.js,</li>
+    <li>HTML5, CSS, JavaScript, jQuery, Angular.js, React.js, Node.js,</li>
     <li>C, C++, Python, Django, MongoDB, Apache Solr,</li>
     <li>ARM Assembly, Intel x86 Assembly, Google App Engine.</li>
   </ul>
@@ -201,7 +201,7 @@
   <h4>Development Environments and Platforms:</h4>
   <ul>
     <li>Visual Studio, IntelliJ IDEA, GNU C/C++,</li>
-    <li>GHC, Vim, Sublime Text 3,</li>
+    <li>GHC, Vim, Sublime Text 3, Atom,</li>
     <li>Mac OS X, Windows, Linux.</li>
   </ul>
 
@@ -227,7 +227,8 @@
         <ul>
           <li>In 2012 I wrote and launched quantitative strategy on Collective2. The computation and simulation engine was originally written in Scala 2.9. Later I had to re-write Monte Carlo engine to plain Java for additional speed-up at computation intensive tasks.</li>
           <li>The latest delivered project was the subcontract for a mobile operator. My team and I developed additional modules for their ERP solution and provided real-time charging core. The project has been handed over and it is in the phase of parallel run with their old system. The project has been implemented in Java Enterprise Edition 6 on Oracle Weblogic 12.1.3 running on JVM 8. The whole system is running on RHEL 6.7.</li>
-          <li>Currently I work on an event charging solution for Russian VoIP operators. Technology stack for this project includes Glasgow Haskell Compiler 7.10.2 with Yesod 1.4 framework for RESTful microservices, Postgresql 9.4 and MongoDB 3.2. Deployment is automated by using Docker 1.9. Nginx is used as reverse-proxy. The solution should be integrated with Asterisk.</li>
+          <li>I worked on event charging solution for Russian VoIP operators. Technology stack for this project includes Glasgow Haskell Compiler 7.10.3 with Yesod 1.4 framework for RESTful microservices, Postgresql 9.4 and MongoDB 3.2. Deployment is automated by using Docker 1.9. Nginx is used as reverse-proxy. The solution was mentioned to be integrated with Asterisk but the project has been stopped.</li>
+          <li>Currently I work on event charging solution for Excelacom Ltd. Technical setup includes Java 8, Spring Boot, Jetty, and Oracle DB 12c. UI part is developed with React.js and Material UI. The solution is going to be integrated into company's portfolio. Also I work on BPMN 2.0 compatible solution for order orchestration.</li>
         </ul>
     </dd>
     <dt>
@@ -262,13 +263,13 @@
         June 2009 - February 2010
     </dt>
     <dd>
-        <em>Freelance Consultant</em>. It was a 9-month project in Belgrade for Mobile Telecom Serbia. First months I spent on stabilization of core subsystems of OSS/BSS solution. Before the stabilization Telecom Serbia losses were a few million dollars per month. After that I participated in the implementation of transactional Order Fulfillment integration system (.NET/Oracle 10g) between Telecom Serbia business applications and OSS products from Sitronics Telecom Solutions.        
+        <em>Freelance Consultant</em>. It was a 9-month project in Belgrade for Mobile Telecom Serbia. First months I spent on stabilization of core subsystems of OSS/BSS solution. Before the stabilization Telecom Serbia losses were a few million dollars per month. After that I participated in the implementation of transactional Order Fulfillment integration system (.NET/Oracle 10g) between Telecom Serbia business applications and OSS products from Sitronics Telecom Solutions.
     <dt>
         SITRONICS Telecommunication Solutions, Czech Republic a.s.,
         December 2005 - May 2009
     </dt>
     <dd>
-    <em>Software Architect, March 2008 - May 2009</em>. Using my previous experience I was working on high-level architecture for online/offline charging and billing system. I was responsible for preparation of software design documents of new features and of change requests. 
+    <em>Software Architect, March 2008 - May 2009</em>. Using my previous experience I was working on high-level architecture for online/offline charging and billing system. I was responsible for preparation of software design documents of new features and of change requests.
     </dd>
     <dd>
     <em>Developer</em>.
@@ -344,6 +345,14 @@
         <a href="https://github.com/paulrzcz/takusen-oracle">[Link #4]</a>
     </dd>
 
+    <dt>
+        HQuantLib
+    </dt>
+    <dd>
+        This library is a port of essencial parts of <a href="http://quantlib.org">QuantLib</a> to Haskell.
+        <a href="https://github.com/paulrzcz/hquantlib">[Link #5]</a>
+    </dd>
+
   </dl>
   </div>
 
@@ -371,6 +380,7 @@
     <li><a href="https://github.com/paulrzcz/montecarlo">https://github.com/paulrzcz/montecarlo</a></li>
     <li><a href="https://github.com/yesodweb/persistent">https://github.com/yesodweb/persistent</a></li>
     <li><a href="https://github.com/yesodweb/takusen-oracle">https://github.com/yesodweb/takusen-oracle</a></li>
+    <li><a href="https://github.com/paulrzcz/hquantlib">https://github.com/paulrzcz/hquantlib</a></li>
   </ol>
 
   <cite>
@@ -380,18 +390,29 @@
 
 </div>
 
-    
+
 <script type="text/javascript">
 
 document.addEventListener("DOMContentLoaded", function ()
 {
     var list = document.querySelectorAll("[replacement]");
-    
+
     for (var i = 0; i < list.length; i++)
     {
         list[i].innerHTML = list[i].getAttribute("replacement");
     }
 });
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-12833991-2', 'auto');
+  ga('send', 'pageview');
 
 </script>
 
