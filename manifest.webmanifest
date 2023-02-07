@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest",
+  "id": "0d0cb738-45b0-5648-e9ae-8343d8fa0cc9",
+  "name": "PaulRž",
+  "short_name": "Building Software That Lasts",
+  "description": "PaulRz - Pavel Ryžov architect and manager with 20 years of experience",
+  "lang": "en-us",
+  "dir": "ltr",
+  "start_url": "/index.html?source=pwa",
+  "display": "fullscreen",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "orientation": "natural",
+  "shortcuts": [  
+    {
+      "name": "Home",
+      "short_name" : "home",
+      "url": "/"
+    } ,
+    {
+      "name": "About",
+      "short_name" : "about",
+      "url": "/about/"
+    } ,
+    {
+      "name": "Books' reviews",
+      "short_name" : "books",
+      "url": "/books/"
+    } ,
+    {
+      "name": "Search",
+      "short_name" : "search",
+      "url": "/search/"
+    } ,
+    {
+      "name": "Contact",
+      "short_name" : "contact",
+      "url": "/contact/"
+    } ,
+    {
+      "name": "GitHub Project",
+      "short_name" : "github",
+      "url": "https://github.com/paulrzcz/"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
+

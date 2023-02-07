@@ -1,0 +1,16 @@
+
+    /* TEAM */
+
+    Author: Pavel Ryzov
+    Contact: paul@paulrz.cz
+    GitHub: @paulrzcz
+    Twitter: @paulrzcz
+    From: Prague, Czechia
+
+    /* SITE */
+
+    Last update: 2023/02/07
+    Language: English
+    Doctype: HTML5
+    Standards: HTML5, CSS3, Open Graph protocol, Schema.org
+    Components: Hugo, Ed Theme, Lunr.js
