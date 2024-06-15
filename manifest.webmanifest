@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest",
   "id": "0d0cb738-45b0-5648-e9ae-8343d8fa0cc9",
-  "name": "PaulRž",
+  "name": "PaulRz",
   "short_name": "Building Software That Lasts",
   "description": "PaulRz - Pavel Ryžov architect and manager with 20 years of experience",
   "lang": "en-us",
@@ -21,6 +21,11 @@
       "name": "About",
       "short_name" : "about",
       "url": "/about/"
+    } ,
+    {
+      "name": "Tech Notes",
+      "short_name" : "tech",
+      "url": "/tech/"
     } ,
     {
       "name": "Books' reviews",

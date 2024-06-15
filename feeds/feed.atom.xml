@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-us" xml:base="https://paulrz.cz/">
-    <title type="html"><![CDATA[PaulRž]]></title>
+    <title type="html"><![CDATA[PaulRz]]></title>
     <subtitle type="html"><![CDATA[PaulRz - Pavel Ryžov architect and manager with 20 years of experience]]></subtitle>
     <link href="/" rel="alternate" type="text/html" title="HTML" />
     <link href="/feeds/feed.atom.xml" rel="self" type="text/xml" title="Atom" />
@@ -15,7 +15,8 @@
         <name type="html"><![CDATA[Pavel Ryzov]]></name>
         <email>paul@paulrz.cz</email>
     </author>
-    <rights>Copyright © 2019-2023 Pavel Ryžov</rights>
+    <rights>Copyright © 2009-2024 Pavel Ryžov</rights>
     <generator uri="https://gohugo.io" version="0.110.0">Hugo</generator>
+    <updated>2023-11-10T00:00:00Z</updated>
     <id>urn:uuid:f153cc33-5f6f-5b42-392a-6763aec7d8dc</id>
 </feed>

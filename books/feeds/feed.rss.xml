@@ -10,13 +10,13 @@
     xml:lang="en-us"
     xml:base="https://paulrz.cz/">
     <channel>
-        <title type="html"><![CDATA[Books&#39; reviews - PaulRž]]></title>
+        <title type="html"><![CDATA[Books&#39; reviews - PaulRz]]></title>
     </channel>
     <link type="text/html">https://paulrz.cz/</link>
     
     <image>
         <url>https://paulrz.cz/img/open-graph-logo_hu649006a96c7f6a02c0a48e2d90a9a7b0_5229_96x96_resize_box_3.png</url>
-        <title type="html"><![CDATA[Books&#39; reviews - PaulRž]]></title>
+        <title type="html"><![CDATA[Books&#39; reviews - PaulRz]]></title>
         <link>https://paulrz.cz/</link>
         <width>96</width>
         <height>96</height>
@@ -29,5 +29,6 @@
     <generator>Hugo 0.110.0</generator>
     <dc:creator type="html"><![CDATA[Pavel Ryzov]]></dc:creator>
     <language>en-us</language>
-    <copyright>Copyright © 2019-2023 Pavel Ryžov</copyright>
+    <copyright>Copyright © 2009-2024 Pavel Ryžov</copyright>
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate>
 </rss>

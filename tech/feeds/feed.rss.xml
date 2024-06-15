@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:media="http://search.yahoo.com/mrss/"
+    xml:lang="en-us"
+    xml:base="https://paulrz.cz/">
+    <channel>
+        <title type="html"><![CDATA[Technical sidenotes - PaulRz]]></title>
+    </channel>
+    <link type="text/html">https://paulrz.cz/</link>
+    
+    <image>
+        <url>https://paulrz.cz/img/open-graph-logo_hu649006a96c7f6a02c0a48e2d90a9a7b0_5229_96x96_resize_box_3.png</url>
+        <title type="html"><![CDATA[Technical sidenotes - PaulRz]]></title>
+        <link>https://paulrz.cz/</link>
+        <width>96</width>
+        <height>96</height>
+    </image>
+    <atom:link href="/tech/" rel="alternate" type="text/html" title="HTML" />
+    <atom:link href="/tech/feeds/feed.atom.xml" rel="alternate" type="text/xml" title="Atom" />
+    <atom:link href="/tech/feeds/feed.rss.xml" rel="self" type="text/xml" title="Feed" />
+    <atom:link href="/tech/feeds/feed.json" rel="alternate" type="application/feed+json" title="JsonFeed" />
+    <description type="html"><![CDATA[PaulRz - Pavel Ryžov architect and manager with 20 years of experience]]></description>
+    <generator>Hugo 0.110.0</generator>
+    <dc:creator type="html"><![CDATA[Pavel Ryzov]]></dc:creator>
+    <language>en-us</language>
+    <copyright>Copyright © 2009-2024 Pavel Ryžov</copyright>
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+        <title type="html"><![CDATA[PostgreSQL and its quirks]]></title>
+        <link>https://paulrz.cz/tech/pg-intro/?utm_source=rss_feed</link>
+        <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+        <category>tech</category>
+        <guid isPermaLink="false">9f3ad6c79a2a970c2cd8002b36564f14</guid>
+        <description type="html"><![CDATA[From the beginning of my career I&rsquo;ve always been working with Oracle Database, from 8i till 12c, on online transaction processing (OLTP). The database is safe, reliable and - Ask Tom! - it&rsquo;s great. And as saying goes, &ldquo;you&rsquo;ve never got in trouble by buying Oracle&rdquo;.
+OLTP loads usually require low latency and high transaction rate. Under different load profiles it was quite simple to come up with a solution of any performance problem.]]></description>
+    </item>
+    
+</rss>
