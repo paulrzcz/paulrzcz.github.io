@@ -30,7 +30,18 @@
     <dc:creator type="html"><![CDATA[Pavel Ryzov]]></dc:creator>
     <language>en-us</language>
     <copyright>Copyright © 2009-2024 Pavel Ryžov</copyright>
-    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+        <title type="html"><![CDATA[Huricane Electric IPv6 tunnel broker]]></title>
+        <link>https://paulrz.cz/tech/ipv6-he/?utm_source=rss_feed</link>
+        <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+        <category>tech</category>
+        <guid isPermaLink="false">7650533d119b744832bea91880389ca0</guid>
+        <description type="html"><![CDATA[IPv6 is quite old technology but its adoptions is not as widespread as IPv4. Blessed with virtually unlimited number of addresses, it still lacks support on major internet service providers. But one might use a tunnel to Hurricane Electric to get a routable prefix to his home network.
+Last days I&rsquo;ve been studying OpenBSD 7.5 and use it as a home lab and a home router. So let&rsquo;s start!
+Configure tunnel You provide your public IP to HE and you get the something like this:]]></description>
+    </item>
+    
     <item>
         <title type="html"><![CDATA[PostgreSQL and its quirks]]></title>
         <link>https://paulrz.cz/tech/pg-intro/?utm_source=rss_feed</link>

@@ -15,6 +15,13 @@
   "language" : "en-us",
   "items": [
     {
+      "id": "e0e1028c-3754-56ac-99aa-200462d690ed",
+      "url": "https://paulrz.cz/tech/ipv6-he/?utm_source=json_feed",
+      "title": "Huricane Electric IPv6 tunnel broker",
+      "summary": "IPv6 is quite old technology but its adoptions is not as widespread as IPv4. Blessed with virtually unlimited number of addresses, it still lacks support on major internet service providers. But one might use a tunnel to Hurricane Electric to get a routable prefix to his home network.\nLast days I\u0026rsquo;ve been studying OpenBSD 7.5 and use it as a home lab and a home router. So let\u0026rsquo;s start!\nConfigure tunnel You provide your public IP to HE and you get the something like this:",
+      "date_published": "2024-06-01T00:00:00Z"
+    },
+    {
       "id": "9306545b-f6e3-58d8-49ab-bcdff6c708f0",
       "url": "https://paulrz.cz/tech/pg-intro/?utm_source=json_feed",
       "title": "PostgreSQL and its quirks",

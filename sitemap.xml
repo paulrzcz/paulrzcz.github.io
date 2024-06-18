@@ -2,21 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     
     <url>
-        <loc>https://paulrz.cz/</loc>
-        <lastmod>2023-11-10T00:00:00Z</lastmod>
+        <loc>https://paulrz.cz/tech/ipv6-he/</loc>
+        <lastmod>2024-06-01T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
-        <loc>https://paulrz.cz/tech/pg-intro/</loc>
-        <lastmod>2023-11-10T00:00:00Z</lastmod>
+        <loc>https://paulrz.cz/</loc>
+        <lastmod>2024-06-01T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>https://paulrz.cz/tech/</loc>
+        <lastmod>2024-06-01T00:00:00Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://paulrz.cz/tech/pg-intro/</loc>
         <lastmod>2023-11-10T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
