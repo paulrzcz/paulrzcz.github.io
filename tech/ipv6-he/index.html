@@ -211,7 +211,12 @@ It is used only for documentation purposes.</p>
 <p>Now, you should be able to ping Google by IPv6 network:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ping6 google.com</span>
 </span></span></code></pre></div><p>If not, check your colons! In IPv6 addresses, of course.</p>
-<h2 id="router-advertisements">Router advertisements</h2>
+<h2 id="ipv6-forwarding">IPv6 forwarding</h2>
+<p>To share the connection OpenBSD kernel should know that it is allowed to forward packets between interfaces. So let&rsquo;s switch it on:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># sysctl -w net.inet6.ip6.forwarding=1</span>
+</span></span></code></pre></div><p>and make it persistent by adding the following line to <code>/etc/sysctl.conf</code>:</p>
+<pre tabindex="0"><code>net.inet6.ip6.forwarding=1
+</code></pre><h2 id="router-advertisements">Router advertisements</h2>
 <p>Router with IPv6 is great but others machines on the network don&rsquo;t bother about it. So, router should let them know. The standard procedure for it uses router advertisements and <code>rad</code> daemon.</p>
 <p>The configuration <code>rad.conf</code> is pretty straight forward:</p>
 <pre tabindex="0"><code>dns {
