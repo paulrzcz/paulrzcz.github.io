@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ipv6 on PaulRz</title>
+    <link>https://paulrz.cz/tags/ipv6/</link>
+    <description>Recent content in ipv6 on PaulRz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Huricane Electric IPv6 tunnel broker</title>
+      <link>https://paulrz.cz/posts/ipv6-he/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulrz.cz/posts/ipv6-he/</guid>
+      <description>IPv6 is quite old technology but its adoptions is not as widespread as IPv4. Blessed with virtually unlimited number of addresses, it still lacks support on major internet service providers. But one might use a tunnel to Hurricane Electric to get a routable prefix to his home network.
+Last days I&amp;rsquo;ve been studying OpenBSD 7.5 and use it as a home lab and a home router. So let&amp;rsquo;s start!
+Configure tunnel 🔗You provide your public IP to HE and you get the something like this:</description>
+    </item>
+    
+  </channel>
+</rss>
