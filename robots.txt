@@ -1,7 +1,0 @@
-# robots.txt file for "PaulRz" website, paulrz.cz
-User-agent: *
-Allow: /
-Disallow: /404.html
-Disallow: /thanks
-
-Sitemap: https://paulrz.cz/sitemap.xml
