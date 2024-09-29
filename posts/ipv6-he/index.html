@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Huricane Electric IPv6 tunnel broker | PaulRz</title>
+    <title>Setting up an IPv6 Tunnel with OpenBSD | PaulRz</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="IPv6 is quite old technology but its adoptions is not as widespread as IPv4. Blessed with virtually unlimited number of addresses, it still lacks support on major internet service providers. But one might use a tunnel to Hurricane Electric to get a routable prefix to his home network.
-Last days I&rsquo;ve been studying OpenBSD 7.5 and use it as a home lab and a home router. So let&rsquo;s start!
-Configure tunnel 🔗You provide your public IP to HE and you get the something like this:">
+<meta name="description" content="Though IPv6 has been around for quite some time, its adoption is still not as widespread as IPv4. While IPv6 offers an almost unlimited number of addresses, support from major ISPs remains limited. One way to enable IPv6 at home is by using a tunnel broker like Hurricane Electric, which provides a routable IPv6 prefix to your home network.
+In this guide, we’ll configure an IPv6 tunnel on OpenBSD 7.5, using it as a home router.">
 <meta name="generator" content="Hugo 0.119.0-DEV">
 
 
@@ -64,7 +63,7 @@ if (!doNotTrack) {
       
 
 <section id="single">
-    <h1 class="title">Huricane Electric IPv6 tunnel broker</h1>
+    <h1 class="title">Setting up an IPv6 Tunnel with OpenBSD</h1>
 
     <div class="tip">
         <time datetime="2024-06-01 00:00:00 &#43;0000 UTC">Jun 1, 2024</time>
@@ -72,13 +71,13 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          429 words
+          423 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          3 minute read
+          2 minute read
         </span>
     </div>
 
@@ -93,10 +92,15 @@ if (!doNotTrack) {
           <div>
               <nav id="TableOfContents">
   <ul>
-    <li><a href="#configure-tunnel">Configure tunnel</a></li>
-    <li><a href="#check-the-connectivity">Check the connectivity</a></li>
-    <li><a href="#ipv6-forwarding">IPv6 forwarding</a></li>
-    <li><a href="#router-advertisements">Router advertisements</a></li>
+    <li>
+      <ul>
+        <li><a href="#tunnel-configuration">Tunnel Configuration</a></li>
+        <li><a href="#testing-the-connection">Testing the Connection</a></li>
+        <li><a href="#enabling-ipv6-forwarding">Enabling IPv6 Forwarding</a></li>
+        <li><a href="#configuring-router-advertisements">Configuring Router Advertisements</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
           </div>
@@ -109,58 +113,54 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <p>IPv6 is quite old technology but its adoptions is not as widespread as IPv4. Blessed with virtually
-unlimited number of addresses, it still lacks support on major internet service providers. But one might
-use a tunnel to <a href="https://tunnelbroker.net" target="_blank" rel="noopener">Hurricane Electric</a> to get a routable prefix to his home network.</p>
-<p>Last days I&rsquo;ve been studying OpenBSD 7.5 and use it as a home lab and a home router. So let&rsquo;s start!</p>
-<h2 id="configure-tunnel">Configure tunnel <a href="#configure-tunnel" class="anchor">🔗</a></h2><p>You provide your public IP to HE and you get the something like this:</p>
+      <p>Though IPv6 has been around for quite some time, its adoption is still not as widespread as IPv4. While IPv6 offers an almost unlimited number of addresses, support from major ISPs remains limited. One way to enable IPv6 at home is by using a tunnel broker like <a href="https://tunnelbroker.net" target="_blank" rel="noopener">Hurricane Electric</a>, which provides a routable IPv6 prefix to your home network.</p>
+<p>In this guide, we’ll configure an IPv6 tunnel on OpenBSD 7.5, using it as a home router.</p>
+<h3 id="tunnel-configuration">Tunnel Configuration <a href="#tunnel-configuration" class="anchor">🔗</a></h3><p>Once you sign up for a tunnel with Hurricane Electric, you&rsquo;ll receive configuration details similar to the following:</p>
 <ul>
-<li>Server IPv4 address - we will use 216.66.88.98</li>
-<li>Server IPv6 address - we will use 2001:db8:1f1c:1a6::1/64</li>
-<li>Client IPv4 address - we will use 10.0.2.22 because my machine is behind NAT, otherwise the public IP must be used.</li>
-<li>Client IPv6 address - we will use 2001:db8:1f1c:1a6::2/64</li>
-<li>Routed /48 - we will use 2001:db8:cafe::/48</li>
+<li><strong>Server IPv4 address</strong>: 216.66.88.98</li>
+<li><strong>Server IPv6 address</strong>: 2001:db8:1f1c:1a6::1/64</li>
+<li><strong>Client IPv4 address</strong>: 10.0.2.22 (if behind NAT; otherwise, use your public IP)</li>
+<li><strong>Client IPv6 address</strong>: 2001:db8:1f1c:1a6::2/64</li>
+<li><strong>Routed /48</strong>: 2001:db8:cafe::/48</li>
 </ul>
-<p>The prefix 2001:db8::/32 has a special meaning in IPv6 address plan and it&rsquo;s called a documentation prefix.
-It is used only for documentation purposes.</p>
-<p>So, you need to create a file <code>/etc/hostname.gif0</code>:</p>
+<p>Note: The prefix <code>2001:db8::/32</code> is a reserved IPv6 documentation prefix and is used for example purposes only.</p>
+<h4 id="creating-the-gif0-interface">Creating the <code>gif0</code> Interface <a href="#creating-the-gif0-interface" class="anchor">🔗</a></h4><p>To configure the tunnel, create a file <code>/etc/hostname.gif0</code> with the following content:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tunnel 10.0.2.22 216.66.88.98
 </span></span><span style="display:flex;"><span>inet6 <span style="color:#a2f">alias</span> 2001:db8:1f1c:1a6::2 <span style="color:#666">128</span> 2001:db8:1f1c:1a6::1
 </span></span><span style="display:flex;"><span>!route -n add -inet6 default 2001:db8:1f1c:1a6::1
 </span></span><span style="display:flex;"><span>up
-</span></span></code></pre></div><p>This file specifies that the interface <code>gif0</code> is created that:</p>
+</span></span></code></pre></div><p>Here’s what each line does:</p>
 <ol>
-<li>tunnels network traffic from <code>10.0.2.22</code> to <code>216.66.88.98</code>;</li>
-<li>uses static IPv6 address <code>2001:db8:1f1c:1a6::2</code> with prefix length <code>128</code> and broadcasting to <code>2001:db8:1f1c:1a6::1</code>;</li>
-<li>has default route for IPv6 to broadcasting address <code>2001:db8:1f1c:1a6::2</code>;</li>
-<li>and <code>up</code> and running!</li>
+<li>Tunnels traffic from your local IPv4 address (<code>10.0.2.22</code>) to the HE server (<code>216.66.88.98</code>).</li>
+<li>Assigns the IPv6 address <code>2001:db8:1f1c:1a6::2</code> with a /128 prefix, routing to the HE server’s IPv6 address.</li>
+<li>Sets the default IPv6 route to the HE server.</li>
+<li>Brings the interface up.</li>
 </ol>
-<h2 id="check-the-connectivity">Check the connectivity <a href="#check-the-connectivity" class="anchor">🔗</a></h2><p>Start the interface by:</p>
+<h3 id="testing-the-connection">Testing the Connection <a href="#testing-the-connection" class="anchor">🔗</a></h3><p>To start the interface, run:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># sh /etc/netstart gif0</span>
-</span></span></code></pre></div><p>Or you might reboot the machine as files <code>hostname.*</code> specify all network interfaces that should be created during the boot.</p>
-<p>Now, you should be able to ping Google by IPv6 network:</p>
+</span></span></code></pre></div><p>Alternatively, you can reboot your machine, as <code>hostname.*</code> files initialize network interfaces during boot.</p>
+<p>Once the interface is up, you can test connectivity by pinging an IPv6 address, such as Google’s:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># ping6 google.com</span>
-</span></span></code></pre></div><p>If not, check your colons! In IPv6 addresses, of course.</p>
-<h2 id="ipv6-forwarding">IPv6 forwarding <a href="#ipv6-forwarding" class="anchor">🔗</a></h2><p>To share the connection OpenBSD kernel should know that it is allowed to forward packets between interfaces. So let&rsquo;s switch it on:</p>
+</span></span></code></pre></div><p>If the ping fails, double-check the syntax, especially the IPv6 address colons.</p>
+<h3 id="enabling-ipv6-forwarding">Enabling IPv6 Forwarding <a href="#enabling-ipv6-forwarding" class="anchor">🔗</a></h3><p>To enable packet forwarding between interfaces, run:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># sysctl -w net.inet6.ip6.forwarding=1</span>
-</span></span></code></pre></div><p>and make it persistent by adding the following line to <code>/etc/sysctl.conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>net.inet6.ip6.forwarding=1
-</span></span></code></pre></div><h2 id="router-advertisements">Router advertisements <a href="#router-advertisements" class="anchor">🔗</a></h2><p>Router with IPv6 is great but others machines on the network don&rsquo;t bother about it. So, router should let them know. The standard procedure for it uses router advertisements and <code>rad</code> daemon.</p>
-<p>The configuration <code>rad.conf</code> is pretty straight forward:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>dns {
-</span></span><span style="display:flex;"><span>    nameserver {
+</span></span></code></pre></div><p>To make this setting persistent across reboots, add the following to <code>/etc/sysctl.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>net.inet6.ip6.forwarding<span style="color:#666">=</span><span style="color:#666">1</span>
+</span></span></code></pre></div><h3 id="configuring-router-advertisements">Configuring Router Advertisements <a href="#configuring-router-advertisements" class="anchor">🔗</a></h3><p>To advertise the IPv6 prefix to other devices on your network, configure the <code>rad</code> (Router Advertisement Daemon). Create or edit the <code>/etc/rad.conf</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dns <span style="color:#666">{</span>
+</span></span><span style="display:flex;"><span>    nameserver <span style="color:#666">{</span>
 </span></span><span style="display:flex;"><span>        2001:4860:4860::8888
 </span></span><span style="display:flex;"><span>        2001:4860:4860::8844
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>interface em0 {
+</span></span><span style="display:flex;"><span>interface em0 <span style="color:#666">{</span>
 </span></span><span style="display:flex;"><span>    prefix 2001:db8:cafe::/48
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>It says use Google DNS servers and advertise the routed prefix on the network interface</p>
-<p>If you didn&rsquo;t modify the default packet filter configuration, whole the network should support IPv6 internet.</p>
-<p>That&rsquo;s it!</p>
-<p>PS: The book <a href="https://www.amazon.com/Absolute-OpenBSD-2nd-Practical-Paranoid-ebook" target="_blank" rel="noopener">Absolute OpenBSD by Michael W. Lucas</a> is a fantastic guide to this part of the world.</p>
+</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
+</span></span></code></pre></div><p>This configuration announces the routed prefix <code>2001:db8:cafe::/48</code> on the <code>em0</code> interface and uses Google&rsquo;s public DNS servers for name resolution.</p>
+<h3 id="conclusion">Conclusion <a href="#conclusion" class="anchor">🔗</a></h3><p>With this setup, your home network should now have full IPv6 internet access via Hurricane Electric’s tunnel. If you&rsquo;ve kept the default OpenBSD firewall settings, everything should be ready to go.</p>
+<hr>
+<p>PS: For more detailed information on OpenBSD, I highly recommend <em><a href="https://www.amazon.com/Absolute-OpenBSD-2nd-Practical-Paranoid-ebook" target="_blank" rel="noopener">Absolute OpenBSD by Michael W. Lucas</a></em>. It’s a fantastic resource for learning more about OpenBSD networking and security.</p>
 
     </div>
 

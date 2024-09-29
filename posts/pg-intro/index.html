@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>PostgreSQL and its quirks | PaulRz</title>
+    <title>My Journey from Oracle to PostgreSQL | PaulRz</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="From the beginning of my career I&rsquo;ve always been working with Oracle Database, from 8i till 12c, on online transaction processing (OLTP). The database is safe, reliable and - Ask Tom! - it&rsquo;s great. And as saying goes, &ldquo;you&rsquo;ve never got in trouble by buying Oracle&rdquo;.
-OLTP loads usually require low latency and high transaction rate. Under different load profiles it was quite simple to come up with a solution of any performance problem.">
+<meta name="description" content="From the start of my career, I&rsquo;ve always been deep into Oracle Database, working on versions from 8i to 12c, all focused on online transaction processing (OLTP). Oracle is rock solid—safe, reliable, and, as Ask Tom will tell you, simply great. There’s even a saying in the industry: “You’ve never gotten in trouble by buying Oracle.” And for the longest time, that was my truth.
+In the OLTP world, you deal with loads that demand low latency and high transaction rates.">
 <meta name="generator" content="Hugo 0.119.0-DEV">
 
 
@@ -63,7 +63,7 @@ if (!doNotTrack) {
       
 
 <section id="single">
-    <h1 class="title">PostgreSQL and its quirks</h1>
+    <h1 class="title">My Journey from Oracle to PostgreSQL</h1>
 
     <div class="tip">
         <time datetime="2023-11-10 00:00:00 &#43;0000 UTC">Nov 10, 2023</time>
@@ -71,13 +71,13 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          262 words
+          594 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          2 minute read
+          3 minute read
         </span>
     </div>
 
@@ -85,31 +85,57 @@ if (!doNotTrack) {
     
         
   
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#first-impressions-a-throwback-to-the-past">First Impressions: A Throwback to the Past</a></li>
+        <li><a href="#a-new-challenge">A New Challenge</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
 
 
     
 
 
     <div class="content">
-      <p>From the beginning of my career I&rsquo;ve always been working with Oracle Database, from 8i till 12c, on online transaction processing (OLTP).
-The database is safe, reliable and - <a href="https://asktom.com" target="_blank" rel="noopener">Ask Tom!</a> - it&rsquo;s great. And as saying goes, &ldquo;you&rsquo;ve never got in trouble by buying Oracle&rdquo;.</p>
-<p>OLTP loads usually require low latency and high transaction rate.
-Under different load profiles it was quite simple to come up with a solution of any performance problem.
-The approaches might differ but in fact you choose either smart way or money bag way.</p>
-<p>And finally I&rsquo;ve landed on a project with initial requirements: 10k transaction per second and - oh my gosh! - PostgreSQL 11.
-Sounds like a challenge for me! Moreover, I&rsquo;ve never seen any production-grade use of this DB.
-Not even saying, about highly concurrent and highly loaded scenarios.
-For me, PostgreSQL was always a toy db or for small projects.</p>
-<p>Reading the PostgreSQL documentation reminded me late 90&rsquo;s MSDN on CD-ROM that contained all you need for Win32 development but the information was sparsed through all the docs. So one just ended up with reading it inside out and developing a new telepathy skill.</p>
-<p>Those were my first notes that I&rsquo;d extracted from the PostgreSQL documentation:</p>
+      <p>From the start of my career, I&rsquo;ve always been deep into Oracle Database, working on versions from 8i to 12c, all focused on online transaction processing (OLTP). Oracle is rock solid—safe, reliable, and, as <a href="https://asktom.com" target="_blank" rel="noopener">Ask Tom</a> will tell you, simply great. There’s even a saying in the industry: “You’ve never gotten in trouble by buying Oracle.” And for the longest time, that was my truth.</p>
+<p>In the OLTP world, you deal with loads that demand low latency and high transaction rates. Whenever a performance issue popped up, solving it wasn’t too complicated. You either tackled it the smart way—through optimization—or the money way, which often meant throwing more hardware at it. Either way, I was always confident I could find a solution.</p>
+<p>But then, I landed on a project that immediately put me out of my comfort zone. The requirements were straightforward—10,000 transactions per second—but there was a twist: <em>PostgreSQL 11</em>.</p>
+<p>My first thought? <em>Oh, my gosh, what have I gotten into?</em> Until then, I’d never encountered PostgreSQL in any real production environment, let alone in a high-concurrency, high-load scenario. For me, PostgreSQL was always the “toy” database, something you’d use for small side projects or non-critical workloads. And now, here it was, powering a project with serious transactional demands.</p>
+<h3 id="first-impressions-a-throwback-to-the-past">First Impressions: A Throwback to the Past <a href="#first-impressions-a-throwback-to-the-past" class="anchor">🔗</a></h3><p>Diving into PostgreSQL documentation was like a trip back to the late ’90s. Remember the old MSDN CDs for Win32 development? They had everything you needed, but you had to dig deep because the information was scattered across hundreds of pages. You’d read the docs inside and out, slowly developing a kind of telepathy to piece it all together. Well, that’s how PostgreSQL felt to me at first.</p>
+<p>Still, I soldiered on, extracting nuggets of knowledge from the docs. Here are a few things that stood out (and surprised me):</p>
 <ol>
-<li>Updates are, in fact, deletes and inserts.</li>
-<li>BLOBs are stored in the separate table - TOAST.</li>
-<li>There is more then one way to partition tables with unclear consequences.</li>
-<li>There is more then one way to build a cluster</li>
-<li>Manual read load distribution, i.e. PG doesn&rsquo;t do anything to offload reads to standby nodes. DIY!</li>
+<li>
+<p><strong>Updates are actually deletes and inserts.</strong> This was a bit of a shock. I mean, technically, it makes sense given the MVCC architecture, but it raised concerns for me about performance and potential bloat.</p>
+</li>
+<li>
+<p><strong>BLOBs are stored in a separate table—TOAST.</strong> I’ll admit, this took me a while to wrap my head around. In Oracle, you just store large objects like CLOBs and BLOBs in-line or out-of-line. PostgreSQL&rsquo;s approach felt a bit more, shall we say, fragmented.</p>
+</li>
+<li>
+<p><strong>Partitioning tables is… complicated.</strong> PostgreSQL offers multiple ways to partition tables, but the consequences of each method aren’t always clear. There was no “one-size-fits-all” answer, and I realized this was going to require careful planning.</p>
+</li>
+<li>
+<p><strong>Clustering is not straightforward either.</strong> It felt like PostgreSQL offered too many options, and deciding on the right cluster setup was daunting. It’s powerful, sure, but not exactly user-friendly.</p>
+</li>
+<li>
+<p><strong>Manual read load distribution.</strong> This one really threw me. In Oracle, read operations can be automatically balanced across standby nodes. PostgreSQL, on the other hand, makes you handle this manually. Essentially, it’s DIY load balancing!</p>
+</li>
 </ol>
-<p>Stay tuned!</p>
+<h3 id="a-new-challenge">A New Challenge <a href="#a-new-challenge" class="anchor">🔗</a></h3><p>All of these discoveries made me realize I was in for a serious challenge. PostgreSQL was no longer the toy database I had assumed it to be. It’s powerful, but it demands that you know it inside and out to get the most out of it—much like Oracle, but in its own unique, sometimes quirky way.</p>
+<p>So, while it wasn’t what I was used to, I found myself intrigued. There’s something exciting about working with a new tool that forces you to rethink everything you know. And that’s where I am now—learning, testing, and building a new skill set around PostgreSQL.</p>
+<p>Stay tuned! This journey is just beginning.</p>
 
     </div>
 

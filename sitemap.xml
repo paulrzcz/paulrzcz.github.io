@@ -2,31 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://paulrz.cz/</loc>
+    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://paulrz.cz/tags/postgresql/</loc>
+    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://paulrz.cz/posts/pg-hot/</loc>
+    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://paulrz.cz/tags/</loc>
+    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://paulrz.cz/posts/</loc>
+    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://paulrz.cz/posts/ubuntu-tweaks/</loc>
     <lastmod>2024-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://paulrz.cz/</loc>
+    <loc>https://paulrz.cz/tags/zfs/</loc>
     <lastmod>2024-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://paulrz.cz/posts/</loc>
-    <lastmod>2024-07-09T00:00:00+00:00</lastmod>
+    <loc>https://paulrz.cz/posts/openbsd-box/</loc>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://paulrz.cz/posts/ipv6-he/</loc>
-    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+    <loc>https://paulrz.cz/tags/openbsd/</loc>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://paulrz.cz/tags/ipv6/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://paulrz.cz/tags/openbsd/</loc>
-    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://paulrz.cz/tags/</loc>
+    <loc>https://paulrz.cz/posts/ipv6-he/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://paulrz.cz/tags/highload/</loc>
-    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://paulrz.cz/tags/postgresql/</loc>
     <lastmod>2023-11-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://paulrz.cz/posts/pg-intro/</loc>

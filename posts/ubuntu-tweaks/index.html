@@ -70,7 +70,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          950 words
+          956 words
         </span>
         <span class="split">
           ·
@@ -120,8 +120,9 @@ if (!doNotTrack) {
 <h3 id="the-zfs-caching-problem-on-ubuntu">The ZFS caching problem on Ubuntu <a href="#the-zfs-caching-problem-on-ubuntu" class="anchor">🔗</a></h3><p>However, one issue quickly surfaced. ZFS, in its greatness, comes with its own cache management system: the ARC (Adaptive Replacement Cache). On the other hand, Ubuntu’s regular Linux filesystem has its own caching mechanisms. The two, unfortunately, don’t talk to each other, which leads to double memory usage and redundant caching. ZFS is already extremely efficient with its ARC, but Linux was layering its own file cache on top of that, causing excessive memory consumption and unnecessary caching.</p>
 <p>To solve this, I needed to tweak a few settings to make memory usage more efficient. I wanted to:</p>
 <ol>
-<li><strong>Limit the ZFS ARC cache</strong> so it wouldn’t gobble up too much RAM.</li>
+<li><strong>Lower Swappiness</strong> to prevent premature swapping.</li>
 <li><strong>Make Linux more aggressive in evicting file system cache</strong> to prevent memory overload.</li>
+<li><strong>Limit the ZFS ARC cache</strong> so it wouldn’t gobble up too much RAM.</li>
 <li><strong>Add SSD-based L2ARC</strong> for faster reads, using an NVMe SSD, to improve overall system responsiveness.</li>
 </ol>
 <p>Here’s how I did it:</p>
@@ -161,6 +162,12 @@ if (!doNotTrack) {
 
     </div>
 
+    
+        <div class="tags">
+            
+                <a href="https://paulrz.cz/tags/zfs">zfs</a>
+            
+        </div>
     
     
     

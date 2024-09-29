@@ -6,7 +6,16 @@
     <description>Recent content on PaulRz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL and updates</title>
+      <link>https://paulrz.cz/posts/pg-hot/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulrz.cz/posts/pg-hot/</guid>
+      <description>In many database applications, particularly in workflow systems, there’s a common requirement to update the status of records. These statuses could range from &amp;ldquo;ready to process&amp;rdquo; to &amp;ldquo;processing,&amp;rdquo; &amp;ldquo;done,&amp;rdquo; &amp;ldquo;reprocessing,&amp;rdquo; or even &amp;ldquo;urgently needed to be processed.&amp;rdquo; While updating a row may seem trivial in some databases like Oracle, it becomes more complex and nuanced in PostgreSQL. What may appear as a simple status change at the application level actually involves several hidden processes that can lead to performance degradation over time.</description>
+    </item>
+    
     <item>
       <title>OpenZFS and Ubuntu tweaks</title>
       <link>https://paulrz.cz/posts/ubuntu-tweaks/</link>
@@ -17,24 +26,32 @@
     </item>
     
     <item>
-      <title>Huricane Electric IPv6 tunnel broker</title>
+      <title>Creating an OpenBSD Box for Vagrant: A Personal Guide</title>
+      <link>https://paulrz.cz/posts/openbsd-box/</link>
+      <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulrz.cz/posts/openbsd-box/</guid>
+      <description>As someone who enjoys exploring different operating systems, I often find myself setting up environments in OpenBSD. It&amp;rsquo;s an elegant and minimalist OS with a strong emphasis on security, which makes it ideal for a variety of use cases. Recently, I worked on creating an OpenBSD box for Vagrant, and I thought I’d share the step-by-step process I followed, along with a few quirks and tips I discovered along the way.</description>
+    </item>
+    
+    <item>
+      <title>Setting up an IPv6 Tunnel with OpenBSD</title>
       <link>https://paulrz.cz/posts/ipv6-he/</link>
       <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://paulrz.cz/posts/ipv6-he/</guid>
-      <description>IPv6 is quite old technology but its adoptions is not as widespread as IPv4. Blessed with virtually unlimited number of addresses, it still lacks support on major internet service providers. But one might use a tunnel to Hurricane Electric to get a routable prefix to his home network.
-Last days I&amp;rsquo;ve been studying OpenBSD 7.5 and use it as a home lab and a home router. So let&amp;rsquo;s start!
-Configure tunnel 🔗You provide your public IP to HE and you get the something like this:</description>
+      <description>Though IPv6 has been around for quite some time, its adoption is still not as widespread as IPv4. While IPv6 offers an almost unlimited number of addresses, support from major ISPs remains limited. One way to enable IPv6 at home is by using a tunnel broker like Hurricane Electric, which provides a routable IPv6 prefix to your home network.
+In this guide, we’ll configure an IPv6 tunnel on OpenBSD 7.5, using it as a home router.</description>
     </item>
     
     <item>
-      <title>PostgreSQL and its quirks</title>
+      <title>My Journey from Oracle to PostgreSQL</title>
       <link>https://paulrz.cz/posts/pg-intro/</link>
       <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://paulrz.cz/posts/pg-intro/</guid>
-      <description>From the beginning of my career I&amp;rsquo;ve always been working with Oracle Database, from 8i till 12c, on online transaction processing (OLTP). The database is safe, reliable and - Ask Tom! - it&amp;rsquo;s great. And as saying goes, &amp;ldquo;you&amp;rsquo;ve never got in trouble by buying Oracle&amp;rdquo;.
-OLTP loads usually require low latency and high transaction rate. Under different load profiles it was quite simple to come up with a solution of any performance problem.</description>
+      <description>From the start of my career, I&amp;rsquo;ve always been deep into Oracle Database, working on versions from 8i to 12c, all focused on online transaction processing (OLTP). Oracle is rock solid—safe, reliable, and, as Ask Tom will tell you, simply great. There’s even a saying in the industry: “You’ve never gotten in trouble by buying Oracle.” And for the longest time, that was my truth.
+In the OLTP world, you deal with loads that demand low latency and high transaction rates.</description>
     </item>
     
     <item>

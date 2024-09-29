@@ -6,15 +6,24 @@
     <description>Recent content in postgresql on PaulRz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>PostgreSQL and its quirks</title>
+      <title>PostgreSQL and updates</title>
+      <link>https://paulrz.cz/posts/pg-hot/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulrz.cz/posts/pg-hot/</guid>
+      <description>In many database applications, particularly in workflow systems, there’s a common requirement to update the status of records. These statuses could range from &amp;ldquo;ready to process&amp;rdquo; to &amp;ldquo;processing,&amp;rdquo; &amp;ldquo;done,&amp;rdquo; &amp;ldquo;reprocessing,&amp;rdquo; or even &amp;ldquo;urgently needed to be processed.&amp;rdquo; While updating a row may seem trivial in some databases like Oracle, it becomes more complex and nuanced in PostgreSQL. What may appear as a simple status change at the application level actually involves several hidden processes that can lead to performance degradation over time.</description>
+    </item>
+    
+    <item>
+      <title>My Journey from Oracle to PostgreSQL</title>
       <link>https://paulrz.cz/posts/pg-intro/</link>
       <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>https://paulrz.cz/posts/pg-intro/</guid>
-      <description>From the beginning of my career I&amp;rsquo;ve always been working with Oracle Database, from 8i till 12c, on online transaction processing (OLTP). The database is safe, reliable and - Ask Tom! - it&amp;rsquo;s great. And as saying goes, &amp;ldquo;you&amp;rsquo;ve never got in trouble by buying Oracle&amp;rdquo;.
-OLTP loads usually require low latency and high transaction rate. Under different load profiles it was quite simple to come up with a solution of any performance problem.</description>
+      <description>From the start of my career, I&amp;rsquo;ve always been deep into Oracle Database, working on versions from 8i to 12c, all focused on online transaction processing (OLTP). Oracle is rock solid—safe, reliable, and, as Ask Tom will tell you, simply great. There’s even a saying in the industry: “You’ve never gotten in trouble by buying Oracle.” And for the longest time, that was my truth.
+In the OLTP world, you deal with loads that demand low latency and high transaction rates.</description>
     </item>
     
   </channel>
