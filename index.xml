@@ -6,7 +6,16 @@
     <description>Recent content on PaulRz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenZFS and Ubuntu tweaks</title>
+      <link>https://paulrz.cz/posts/ubuntu-tweaks/</link>
+      <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulrz.cz/posts/ubuntu-tweaks/</guid>
+      <description>Recently, I embarked on a project to optimize my home server setup by transitioning my disk storage pool from RAID5 using mdadm and XFS to ZFS RAIDZ-1. Honestly, it’s been a huge improvement in both performance and functionality, and I’m pretty excited about the results so far. My home server functions as a lab environment, where I primarily serve videos, experiment with Kubernetes clusters, and run various virtual machines (VMs) — mostly OpenBSD and FreeBSD instances.</description>
+    </item>
+    
     <item>
       <title>Huricane Electric IPv6 tunnel broker</title>
       <link>https://paulrz.cz/posts/ipv6-he/</link>
