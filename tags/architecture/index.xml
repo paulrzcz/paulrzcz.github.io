@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>architecture on PaulRz</title>
+    <link>https://paulrz.cz/tags/architecture/</link>
+    <description>Recent content in architecture on PaulRz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enterprise Architecture Artifacts and Frameworks</title>
+      <link>https://paulrz.cz/posts/ea-artifacts/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulrz.cz/posts/ea-artifacts/</guid>
+      <description>Enterprise Architecture (EA) involves a structured approach to aligning IT infrastructure and business processes with organizational goals. To support this, various artifacts are created that serve as models, documentation, and representations of the organization’s systems. These artifacts help communicate, plan, and govern the architecture across different stakeholders. The main artifacts of enterprise architecture typically fall into several categories:
+Business Architecture Artifacts Business Capability Model: A high-level map of the organization’s abilities to meet business goals.</description>
+    </item>
+    
+  </channel>
+</rss>
