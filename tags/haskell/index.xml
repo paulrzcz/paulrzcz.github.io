@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>haskell on PaulRz</title>
+    <link>https://paulrz.cz/tags/haskell/</link>
+    <description>Recent content in haskell on PaulRz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Haskell as Enterprise Architecture</title>
+      <link>https://paulrz.cz/posts/ea-haskell/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://paulrz.cz/posts/ea-haskell/</guid>
+      <description>I was playing with an idea that Haskell might be a right language to describe an Enterprise Architecture. Haskell’s strong type system, functional programming paradigm, and support for domain-specific languages (DSLs) make it a good candidate for modeling enterprise architecture (EA). Here’s why and how:
+Why Haskell is Suitable for Enterprise Architecture: 🔗 Strong Typing &amp;amp; Type Safety: Enterprise architecture models deal with various interconnected components (like applications, data, infrastructure, processes).</description>
+    </item>
+    
+  </channel>
+</rss>
