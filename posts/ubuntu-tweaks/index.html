@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
   <head>
     <title>OpenZFS and Ubuntu tweaks | PaulRz</title>
 
@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Recently, I embarked on a project to optimize my home server setup by transitioning my disk storage pool from RAID5 using mdadm and XFS to ZFS RAIDZ-1. Honestly, it’s been a huge improvement in both performance and functionality, and I’m pretty excited about the results so far. My home server functions as a lab environment, where I primarily serve videos, experiment with Kubernetes clusters, and run various virtual machines (VMs) — mostly OpenBSD and FreeBSD instances.">
-<meta name="generator" content="Hugo 0.119.0-DEV">
+<meta name="generator" content="Hugo 0.169.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -21,17 +21,20 @@
 
  
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KJ2QL1MQGP', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KJ2QL1MQGP');
+        }
+      </script>
 
 
 
@@ -70,7 +73,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          956 words
+          963 words
         </span>
         <span class="split">
           ·
@@ -129,12 +132,12 @@ if (!doNotTrack) {
 <hr>
 <h3 id="step-1-lower-swappiness">Step 1: Lower Swappiness <a href="#step-1-lower-swappiness" class="anchor">🔗</a></h3><p>Swappiness determines how aggressively Ubuntu uses swap space. In a home server where I want maximum performance, I don’t want the system to start swapping prematurely, especially since my server has a decent amount of RAM (32GB). I want Linux to prioritize keeping data in RAM.</p>
 <p>I set the swappiness value low by adding this line to <code>/etc/sysctl.conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vm.swappiness<span style="color:#666">=</span><span style="color:#666">10</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vm.swappiness<span style="color:#666">=</span><span style="color:#666">10</span>
 </span></span></code></pre></div><p>A lower swappiness ensures that RAM is used to its fullest extent before swap is touched. In this case, a value of 10 tells the system to only use swap when absolutely necessary, freeing more RAM for ZFS ARC and other applications.</p>
 <hr>
 <h3 id="step-2-more-aggressive-file-cache-eviction">Step 2: More Aggressive File Cache Eviction <a href="#step-2-more-aggressive-file-cache-eviction" class="anchor">🔗</a></h3><p>Next, I needed the Linux file system to be more aggressive about releasing cached files when memory is tight. I increased the <code>vfs_cache_pressure</code> value to 200, which tells the system to favor releasing unused file system caches faster.</p>
 <p>To do this, I added this line to <code>/etc/sysctl.conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vm.vfs_cache_pressure<span style="color:#666">=</span><span style="color:#666">200</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vm.vfs_cache_pressure<span style="color:#666">=</span><span style="color:#666">200</span>
 </span></span></code></pre></div><p>By default, this value is set to 100, but bumping it up to 200 forces Linux to evict more cached data when it’s no longer needed, allowing more room for ZFS ARC.</p>
 <hr>
 <h3 id="step-3-limiting-zfs-arc-cache-size">Step 3: Limiting ZFS ARC Cache Size <a href="#step-3-limiting-zfs-arc-cache-size" class="anchor">🔗</a></h3><p>One of ZFS’s powerful features is the ARC (Adaptive Replacement Cache), which dynamically adjusts based on memory usage. However, if left unchecked, ZFS ARC will happily eat up a large chunk of RAM, potentially leading to memory pressure for other services like my Kubernetes cluster or VMs.</p>
@@ -142,19 +145,19 @@ if (!doNotTrack) {
 <ol>
 <li>
 <p>Open <code>/etc/modprobe.d/zfs.conf</code> and add the following line to limit the ARC to 4GB:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>options zfs <span style="color:#b8860b">zfs_arc_max</span><span style="color:#666">=</span><span style="color:#666">4294967296</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>options zfs <span style="color:#b8860b">zfs_arc_max</span><span style="color:#666">=</span><span style="color:#666">4294967296</span>
 </span></span></code></pre></div><p>This configuration caps the ARC size at 4GB, which I found to be a sweet spot in my setup after some experimentation. ZFS still gets enough RAM to cache frequently accessed data, but it doesn&rsquo;t starve other processes.</p>
 </li>
 <li>
 <p>After saving the file, I ran the following command to update the initial RAM filesystem (initramfs), which ensures the changes take effect on reboot:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo update-initramfs -u
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo update-initramfs -u
 </span></span></code></pre></div></li>
 </ol>
 <hr>
 <h3 id="step-4-adding-ssd-based-l2arc-cache">Step 4: Adding SSD-based L2ARC Cache <a href="#step-4-adding-ssd-based-l2arc-cache" class="anchor">🔗</a></h3><p>For an extra performance boost, especially for read-heavy tasks like serving media files, I added a second layer of cache using an SSD as ZFS’s L2ARC (Level 2 Adaptive Replacement Cache). This is where ZFS excels: it can use fast SSDs to hold cached data, improving read performance by keeping frequently accessed data closer to the CPU.</p>
 <p>In my case, I used a 500GB NVMe SSD for the L2ARC, and the performance difference was immediately noticeable.</p>
 <p>To add the SSD as a cache device to the pool, I used the following command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zpool add mypool cache /dev/nvme0n1
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zpool add mypool cache /dev/nvme0n1
 </span></span></code></pre></div><p>This added the NVMe SSD as an L2ARC to my ZFS pool, where it acts as a secondary cache, speeding up reads significantly by offloading data from the slower spinning disks to the SSD. The combination of ARC and L2ARC creates a hybrid caching system that leverages both RAM and SSD speed.</p>
 <hr>
 <h3 id="final-thoughts">Final Thoughts <a href="#final-thoughts" class="anchor">🔗</a></h3><p>Moving from <code>mdadm</code> RAID5 with XFS to ZFS RAIDZ-1 has been a game-changer for my home server. Not only am I now benefiting from ZFS’s advanced features like snapshots and data integrity, but with the added SSD-based L2ARC and careful memory management, my system performs much better under load. Whether it’s spinning up Kubernetes pods or serving large video files, everything runs smoother and faster now.</p>
@@ -176,7 +179,7 @@ if (!doNotTrack) {
 
 
     </main>
-    
+
     <footer id="footer">
     
         <div id="social">
@@ -232,8 +235,8 @@ if (!doNotTrack) {
 
     <div class="copyright">
     
-       © Copyright 
-       2024 
+       © Copyright
+       2026
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

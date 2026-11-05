@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ipv6 on PaulRz</title>
-    <link>https://paulrz.cz/tags/ipv6/</link>
-    <description>Recent content in ipv6 on PaulRz</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Setting up an IPv6 Tunnel with OpenBSD</title>
-      <link>https://paulrz.cz/posts/ipv6-he/</link>
-      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/posts/ipv6-he/</guid>
-      <description>Though IPv6 has been around for quite some time, its adoption is still not as widespread as IPv4. While IPv6 offers an almost unlimited number of addresses, support from major ISPs remains limited. One way to enable IPv6 at home is by using a tunnel broker like Hurricane Electric, which provides a routable IPv6 prefix to your home network.
-In this guide, we’ll configure an IPv6 tunnel on OpenBSD 7.5, using it as a home router.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Ipv6 on PaulRz</title>
+		<link>https://paulrz.cz/tags/ipv6/</link>
+		<description>Recent content in Ipv6 on PaulRz</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://paulrz.cz/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Setting up an IPv6 Tunnel with OpenBSD</title>
+				<link>https://paulrz.cz/posts/ipv6-he/</link>
+				<pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/posts/ipv6-he/</guid>
+				<description>&lt;p&gt;Though IPv6 has been around for quite some time, its adoption is still not as widespread as IPv4. While IPv6 offers an almost unlimited number of addresses, support from major ISPs remains limited. One way to enable IPv6 at home is by using a tunnel broker like &lt;a href=&#34;https://tunnelbroker.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hurricane Electric&lt;/a&gt;, which provides a routable IPv6 prefix to your home network.&lt;/p&gt;&#xA;&lt;p&gt;In this guide, we’ll configure an IPv6 tunnel on OpenBSD 7.5, using it as a home router.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

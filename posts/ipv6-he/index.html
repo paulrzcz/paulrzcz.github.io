@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
   <head>
     <title>Setting up an IPv6 Tunnel with OpenBSD | PaulRz</title>
 
@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Though IPv6 has been around for quite some time, its adoption is still not as widespread as IPv4. While IPv6 offers an almost unlimited number of addresses, support from major ISPs remains limited. One way to enable IPv6 at home is by using a tunnel broker like Hurricane Electric, which provides a routable IPv6 prefix to your home network.
 In this guide, we’ll configure an IPv6 tunnel on OpenBSD 7.5, using it as a home router.">
-<meta name="generator" content="Hugo 0.119.0-DEV">
+<meta name="generator" content="Hugo 0.169.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -22,17 +22,20 @@ In this guide, we’ll configure an IPv6 tunnel on OpenBSD 7.5, using it as a ho
 
  
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KJ2QL1MQGP', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KJ2QL1MQGP');
+        }
+      </script>
 
 
 
@@ -71,13 +74,13 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          423 words
+          429 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          2 minute read
+          3 minute read
         </span>
     </div>
 
@@ -125,7 +128,7 @@ if (!doNotTrack) {
 </ul>
 <p>Note: The prefix <code>2001:db8::/32</code> is a reserved IPv6 documentation prefix and is used for example purposes only.</p>
 <h4 id="creating-the-gif0-interface">Creating the <code>gif0</code> Interface <a href="#creating-the-gif0-interface" class="anchor">🔗</a></h4><p>To configure the tunnel, create a file <code>/etc/hostname.gif0</code> with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tunnel 10.0.2.22 216.66.88.98
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tunnel 10.0.2.22 216.66.88.98
 </span></span><span style="display:flex;"><span>inet6 <span style="color:#a2f">alias</span> 2001:db8:1f1c:1a6::2 <span style="color:#666">128</span> 2001:db8:1f1c:1a6::1
 </span></span><span style="display:flex;"><span>!route -n add -inet6 default 2001:db8:1f1c:1a6::1
 </span></span><span style="display:flex;"><span>up
@@ -137,17 +140,17 @@ if (!doNotTrack) {
 <li>Brings the interface up.</li>
 </ol>
 <h3 id="testing-the-connection">Testing the Connection <a href="#testing-the-connection" class="anchor">🔗</a></h3><p>To start the interface, run:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># sh /etc/netstart gif0</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># sh /etc/netstart gif0</span>
 </span></span></code></pre></div><p>Alternatively, you can reboot your machine, as <code>hostname.*</code> files initialize network interfaces during boot.</p>
 <p>Once the interface is up, you can test connectivity by pinging an IPv6 address, such as Google’s:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># ping6 google.com</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># ping6 google.com</span>
 </span></span></code></pre></div><p>If the ping fails, double-check the syntax, especially the IPv6 address colons.</p>
 <h3 id="enabling-ipv6-forwarding">Enabling IPv6 Forwarding <a href="#enabling-ipv6-forwarding" class="anchor">🔗</a></h3><p>To enable packet forwarding between interfaces, run:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># sysctl -w net.inet6.ip6.forwarding=1</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># sysctl -w net.inet6.ip6.forwarding=1</span>
 </span></span></code></pre></div><p>To make this setting persistent across reboots, add the following to <code>/etc/sysctl.conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>net.inet6.ip6.forwarding<span style="color:#666">=</span><span style="color:#666">1</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>net.inet6.ip6.forwarding<span style="color:#666">=</span><span style="color:#666">1</span>
 </span></span></code></pre></div><h3 id="configuring-router-advertisements">Configuring Router Advertisements <a href="#configuring-router-advertisements" class="anchor">🔗</a></h3><p>To advertise the IPv6 prefix to other devices on your network, configure the <code>rad</code> (Router Advertisement Daemon). Create or edit the <code>/etc/rad.conf</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dns <span style="color:#666">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dns <span style="color:#666">{</span>
 </span></span><span style="display:flex;"><span>    nameserver <span style="color:#666">{</span>
 </span></span><span style="display:flex;"><span>        2001:4860:4860::8888
 </span></span><span style="display:flex;"><span>        2001:4860:4860::8844
@@ -180,7 +183,7 @@ if (!doNotTrack) {
 
 
     </main>
-    
+
     <footer id="footer">
     
         <div id="social">
@@ -236,8 +239,8 @@ if (!doNotTrack) {
 
     <div class="copyright">
     
-       © Copyright 
-       2024 
+       © Copyright
+       2026
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

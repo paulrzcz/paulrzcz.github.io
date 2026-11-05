@@ -1,83 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on PaulRz</title>
-    <link>https://paulrz.cz/tags/</link>
-    <description>Recent content in Tags on PaulRz</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>architecture</title>
-      <link>https://paulrz.cz/tags/architecture/</link>
-      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>haskell</title>
-      <link>https://paulrz.cz/tags/haskell/</link>
-      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/haskell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>postgresql</title>
-      <link>https://paulrz.cz/tags/postgresql/</link>
-      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/postgresql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zfs</title>
-      <link>https://paulrz.cz/tags/zfs/</link>
-      <pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/zfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>openbsd</title>
-      <link>https://paulrz.cz/tags/openbsd/</link>
-      <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/openbsd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ipv6</title>
-      <link>https://paulrz.cz/tags/ipv6/</link>
-      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/ipv6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>highload</title>
-      <link>https://paulrz.cz/tags/highload/</link>
-      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/highload/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>business</title>
-      <link>https://paulrz.cz/tags/business/</link>
-      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/tags/business/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Tags on PaulRz</title>
+		<link>https://paulrz.cz/tags/</link>
+		<description>Recent content in Tags on PaulRz</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://paulrz.cz/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Architecture</title>
+				<link>https://paulrz.cz/tags/architecture/</link>
+				<pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/architecture/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Haskell</title>
+				<link>https://paulrz.cz/tags/haskell/</link>
+				<pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/haskell/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Postgresql</title>
+				<link>https://paulrz.cz/tags/postgresql/</link>
+				<pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/postgresql/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Zfs</title>
+				<link>https://paulrz.cz/tags/zfs/</link>
+				<pubDate>Tue, 09 Jul 2024 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/zfs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Openbsd</title>
+				<link>https://paulrz.cz/tags/openbsd/</link>
+				<pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/openbsd/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ipv6</title>
+				<link>https://paulrz.cz/tags/ipv6/</link>
+				<pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/ipv6/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Highload</title>
+				<link>https://paulrz.cz/tags/highload/</link>
+				<pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/highload/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Business</title>
+				<link>https://paulrz.cz/tags/business/</link>
+				<pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/tags/business/</guid>
+				<description></description>
+			</item>
+	</channel>
 </rss>

@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>highload on PaulRz</title>
-    <link>https://paulrz.cz/tags/highload/</link>
-    <description>Recent content in highload on PaulRz</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://paulrz.cz/tags/highload/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>My Journey from Oracle to PostgreSQL</title>
-      <link>https://paulrz.cz/posts/pg-intro/</link>
-      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://paulrz.cz/posts/pg-intro/</guid>
-      <description>From the start of my career, I&amp;rsquo;ve always been deep into Oracle Database, working on versions from 8i to 12c, all focused on online transaction processing (OLTP). Oracle is rock solid—safe, reliable, and, as Ask Tom will tell you, simply great. There’s even a saying in the industry: “You’ve never gotten in trouble by buying Oracle.” And for the longest time, that was my truth.
-In the OLTP world, you deal with loads that demand low latency and high transaction rates.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Highload on PaulRz</title>
+		<link>https://paulrz.cz/tags/highload/</link>
+		<description>Recent content in Highload on PaulRz</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://paulrz.cz/tags/highload/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>My Journey from Oracle to PostgreSQL</title>
+				<link>https://paulrz.cz/posts/pg-intro/</link>
+				<pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+				<guid>https://paulrz.cz/posts/pg-intro/</guid>
+				<description>&lt;p&gt;From the start of my career, I&amp;rsquo;ve always been deep into Oracle Database, working on versions from 8i to 12c, all focused on online transaction processing (OLTP). Oracle is rock solid—safe, reliable, and, as &lt;a href=&#34;https://asktom.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Tom&lt;/a&gt; will tell you, simply great. There’s even a saying in the industry: “You’ve never gotten in trouble by buying Oracle.” And for the longest time, that was my truth.&lt;/p&gt;&#xA;&lt;p&gt;In the OLTP world, you deal with loads that demand low latency and high transaction rates. Whenever a performance issue popped up, solving it wasn’t too complicated. You either tackled it the smart way—through optimization—or the money way, which often meant throwing more hardware at it. Either way, I was always confident I could find a solution.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

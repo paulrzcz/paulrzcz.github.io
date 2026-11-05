@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
   <head>
     <title>Haskell for Enterprise Architecture | PaulRz</title>
 
@@ -7,8 +7,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="I was playing with an idea that Haskell might be a right language to describe an Enterprise Architecture. Haskell’s strong type system, functional programming paradigm, and support for domain-specific languages (DSLs) make it a good candidate for modeling enterprise architecture (EA). Here’s why and how:
-Why Haskell is Suitable for Enterprise Architecture: 🔗 Strong Typing &amp; Type Safety: Enterprise architecture models deal with various interconnected components (like applications, data, infrastructure, processes).">
-<meta name="generator" content="Hugo 0.119.0-DEV">
+Why Haskell is Suitable for Enterprise Architecture: 🔗
+Strong Typing &amp; Type Safety: Enterprise architecture models deal with various interconnected components (like applications, data, infrastructure, processes). Haskell’s strong static type system can ensure that these components are represented safely, with clear relationships and constraints, reducing errors early in development.
+Domain-Specific Languages (DSLs): You can use Haskell to create a DSL that allows enterprise architects to describe the architecture in a declarative way. A DSL can help represent architectural models, constraints, and even transformations in a very readable and maintainable format.
+Immutability and Pure Functions: Enterprise architectures often describe systems in a way that abstracts over the details of state changes, which fits well with Haskell’s approach of immutability and pure functions. It helps in building more predictable and maintainable models.
+Functional Abstractions: Concepts like composability and higher-order functions make it easier to build modular and reusable components within an EA model.
+
+What to Include in a Haskell Enterprise Architecture Library: 🔗
+Core Modeling Constructs: You can create types that represent key elements of enterprise architecture (applications, data stores, business processes, technologies, etc.) and relationships between them (dependencies, interactions).
+Constraints and Rules: Use Haskell’s type system and pure functions to encode architectural constraints and validation rules. This can ensure that models comply with best practices or enterprise standards.
+DSL for Architecture: Develop a domain-specific language that allows users to describe their architecture in a declarative, readable syntax, using Haskell as the base.
+Simulation and Analysis Tools: Haskell is great for building analysis tools that can evaluate different aspects of the architecture, like dependency analysis, bottlenecks, or redundancy.
+
+Potential Challenges: 🔗
+Adoption: Haskell isn’t as widely used in the enterprise world as languages like Java or Python. This could limit adoption unless there’s a compelling reason or niche where Haskell excels.
+Learning Curve: Enterprise architects who may not be familiar with functional programming could find Haskell’s syntax and concepts challenging at first.
+
+Conclusion 🔗While Haskell may not be the first choice for enterprise architecture in the industry, it has the right tools and abstractions to create a powerful, type-safe, and maintainable EA modeling library. If you’re comfortable with functional programming, it could provide a unique and elegant solution to modeling and analyzing complex systems.">
+<meta name="generator" content="Hugo 0.169.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -22,17 +38,20 @@ Why Haskell is Suitable for Enterprise Architecture: 🔗 Strong Typing &amp; Ty
 
  
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KJ2QL1MQGP', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KJ2QL1MQGP');
+        }
+      </script>
 
 
 
@@ -71,13 +90,13 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          424 words
+          425 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          2 minute read
+          3 minute read
         </span>
     </div>
 
@@ -150,7 +169,7 @@ if (!doNotTrack) {
 
 
     </main>
-    
+
     <footer id="footer">
     
         <div id="social">
@@ -206,8 +225,8 @@ if (!doNotTrack) {
 
     <div class="copyright">
     
-       © Copyright 
-       2024 
+       © Copyright
+       2026
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

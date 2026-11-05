@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
   <head>
     <title>Creating an OpenBSD Box for Vagrant: A Personal Guide | PaulRz</title>
 
@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="As someone who enjoys exploring different operating systems, I often find myself setting up environments in OpenBSD. It&rsquo;s an elegant and minimalist OS with a strong emphasis on security, which makes it ideal for a variety of use cases. Recently, I worked on creating an OpenBSD box for Vagrant, and I thought I’d share the step-by-step process I followed, along with a few quirks and tips I discovered along the way.">
-<meta name="generator" content="Hugo 0.119.0-DEV">
+<meta name="generator" content="Hugo 0.169.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -21,17 +21,20 @@
 
  
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KJ2QL1MQGP', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KJ2QL1MQGP');
+        }
+      </script>
 
 
 
@@ -70,7 +73,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          832 words
+          839 words
         </span>
         <span class="split">
           ·
@@ -144,11 +147,11 @@ if (!doNotTrack) {
 </ul>
 <h2 id="installing-additional-software">Installing Additional Software <a href="#installing-additional-software" class="anchor">🔗</a></h2><p>Once OpenBSD is installed and running, the next step is to install some essential software packages that will make the Vagrant box usable.</p>
 <p>First, give OpenBSD some time to relink its kernel. You can monitor the process using:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># less /usr/share/relink/kernel/GENERIC.MP/relink.log</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># less /usr/share/relink/kernel/GENERIC.MP/relink.log</span>
 </span></span></code></pre></div><p>Once it’s done, you’ll see:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Kernel has been relinked and is active on next reboot.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Kernel has been relinked and is active on next reboot.
 </span></span></code></pre></div><p>Now, install the necessary packages using the following commands:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># syspatch</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># syspatch</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># pkg_add sudo bash rsync</span>
 </span></span></code></pre></div><p>Here’s why these are important:</p>
 <ul>
@@ -157,24 +160,24 @@ if (!doNotTrack) {
 <li><code>rsync</code>: Required for efficient file syncing between your host and the VM.</li>
 </ul>
 <h3 id="configuring-sudo-for-vagrant">Configuring sudo for Vagrant <a href="#configuring-sudo-for-vagrant" class="anchor">🔗</a></h3><p>Next, you’ll need to give the <code>vagrant</code> user passwordless sudo privileges. Edit the sudoers file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># visudo</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># visudo</span>
 </span></span></code></pre></div><p>Add the following line:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>vagrant ALL=(ALL) NOPASSWD: ALL
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>vagrant ALL=(ALL) NOPASSWD: ALL
 </span></span></code></pre></div><p>This allows Vagrant to run commands as root without requiring a password, which is crucial for smooth operation.</p>
 <h3 id="setting-up-ssh-and-nodns">Setting Up SSH and NoDNS <a href="#setting-up-ssh-and-nodns" class="anchor">🔗</a></h3><p>Vagrant uses SSH to communicate with the virtual machine. You’ll need to ensure that SSH is properly configured and secure. Edit the <code>sshd_config</code> file to disable DNS lookups for faster SSH connections:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/etc/ssh/sshd_config
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/etc/ssh/sshd_config
 </span></span></code></pre></div><p>Add or modify this line:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>UseDNS no
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>UseDNS no
 </span></span></code></pre></div><p>Additionally, make sure to add Vagrant’s insecure public key to the authorized keys file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vi .ssh/authorized_keys
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vi .ssh/authorized_keys
 </span></span></code></pre></div><p>This allows Vagrant to SSH into the VM without a password.</p>
 <h2 id="packaging-the-openbsd-box-for-vagrant">Packaging the OpenBSD Box for Vagrant <a href="#packaging-the-openbsd-box-for-vagrant" class="anchor">🔗</a></h2><p>Once everything is set up and working, it’s time to package your OpenBSD VM into a Vagrant box. This is done using the <code>vagrant package</code> command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vagrant package --base minibsd
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vagrant package --base minibsd
 </span></span></code></pre></div><p>This will create a <code>.box</code> file that you can distribute or reuse with Vagrant.</p>
 <h2 id="bringing-the-box-to-life-with-vagrant">Bringing the Box to Life with Vagrant <a href="#bringing-the-box-to-life-with-vagrant" class="anchor">🔗</a></h2><p>To start using your new OpenBSD box, you’ll need to initialize it in Vagrant. Start by creating a Vagrantfile:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vagrant init minibsd ../box/openbsd75-mini.box
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vagrant init minibsd ../box/openbsd75-mini.box
 </span></span></code></pre></div><p>Then, configure the synced folder to use <code>rsync</code> for file sharing:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>    config<span style="color:#666">.</span>vm<span style="color:#666">.</span>synced_folder <span style="color:#b44">&#34;.&#34;</span>, <span style="color:#b44">&#34;/vagrant&#34;</span>, <span style="color:#b8860b">type</span>: <span style="color:#b44">&#34;rsync&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>    config<span style="color:#666">.</span>vm<span style="color:#666">.</span>synced_folder <span style="color:#b44">&#34;.&#34;</span>, <span style="color:#b44">&#34;/vagrant&#34;</span>, <span style="color:#b8860b">type</span>: <span style="color:#b44">&#34;rsync&#34;</span>
 </span></span></code></pre></div><p>That’s it! Now you can run <code>vagrant up</code> to bring your OpenBSD environment to life.</p>
 <hr>
 <p>I hope this guide helps you set up your own OpenBSD Vagrant box. I’m a huge fan of exploring different operating systems, and OpenBSD continues to be a rewarding experience for me. If you enjoy minimalism and security, I encourage you to give this a try. Let me know if you run into any quirks—after all, that’s part of the fun!</p>
@@ -195,7 +198,7 @@ if (!doNotTrack) {
 
 
     </main>
-    
+
     <footer id="footer">
     
         <div id="social">
@@ -251,8 +254,8 @@ if (!doNotTrack) {
 
     <div class="copyright">
     
-       © Copyright 
-       2024 
+       © Copyright
+       2026
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>

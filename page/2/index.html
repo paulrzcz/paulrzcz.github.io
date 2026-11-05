@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
   <head>
     <title>PaulRz | PaulRz</title>
 
@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="PaulRz - Pavel Ryžov architect and manager with 20 years of experience">
-<meta name="generator" content="Hugo 0.119.0-DEV">
+<meta name="generator" content="Hugo 0.169.0">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -21,17 +21,20 @@
 
  
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-KJ2QL1MQGP', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ2QL1MQGP"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KJ2QL1MQGP');
+        }
+      </script>
 
 
 
@@ -90,7 +93,8 @@ if (!doNotTrack) {
           </div>
 
           
-              <div class="summary">In many database applications, particularly in workflow systems, there’s a common requirement to update the status of records. These statuses could range from “ready to process” to “processing,” “done,” “reprocessing,” or even “urgently needed to be processed.” While updating a row may seem trivial in some databases like Oracle, it becomes more complex and nuanced in PostgreSQL. What may appear as a simple status change at the application level actually involves several hidden processes that can lead to performance degradation over time.</div>
+              <div class="summary">In many database applications, particularly in workflow systems, there’s a common requirement to update the status of records. These statuses could range from “ready to process” to “processing,” “done,” “reprocessing,” or even “urgently needed to be processed.” While updating a row may seem trivial in some databases like Oracle, it becomes more complex and nuanced in PostgreSQL. What may appear as a simple status change at the application level actually involves several hidden processes that can lead to performance degradation over time. In this article, I’ll walk through why this happens in PostgreSQL and what you can do to mitigate it.
+</div>
           
 
         </section>
@@ -106,7 +110,8 @@ if (!doNotTrack) {
           </div>
 
           
-              <div class="summary">Recently, I embarked on a project to optimize my home server setup by transitioning my disk storage pool from RAID5 using mdadm and XFS to ZFS RAIDZ-1. Honestly, it’s been a huge improvement in both performance and functionality, and I’m pretty excited about the results so far. My home server functions as a lab environment, where I primarily serve videos, experiment with Kubernetes clusters, and run various virtual machines (VMs) — mostly OpenBSD and FreeBSD instances.</div>
+              <div class="summary">Recently, I embarked on a project to optimize my home server setup by transitioning my disk storage pool from RAID5 using mdadm and XFS to ZFS RAIDZ-1. Honestly, it’s been a huge improvement in both performance and functionality, and I’m pretty excited about the results so far. My home server functions as a lab environment, where I primarily serve videos, experiment with Kubernetes clusters, and run various virtual machines (VMs) — mostly OpenBSD and FreeBSD instances.
+</div>
           
 
         </section>
@@ -122,7 +127,8 @@ if (!doNotTrack) {
           </div>
 
           
-              <div class="summary">As someone who enjoys exploring different operating systems, I often find myself setting up environments in OpenBSD. It’s an elegant and minimalist OS with a strong emphasis on security, which makes it ideal for a variety of use cases. Recently, I worked on creating an OpenBSD box for Vagrant, and I thought I’d share the step-by-step process I followed, along with a few quirks and tips I discovered along the way.</div>
+              <div class="summary">As someone who enjoys exploring different operating systems, I often find myself setting up environments in OpenBSD. It’s an elegant and minimalist OS with a strong emphasis on security, which makes it ideal for a variety of use cases. Recently, I worked on creating an OpenBSD box for Vagrant, and I thought I’d share the step-by-step process I followed, along with a few quirks and tips I discovered along the way.
+</div>
           
 
         </section>
@@ -152,7 +158,7 @@ if (!doNotTrack) {
 </div>
 
     </main>
-    
+
     <footer id="footer">
     
         <div id="social">
@@ -208,8 +214,8 @@ if (!doNotTrack) {
 
     <div class="copyright">
     
-       © Copyright 
-       2024 
+       © Copyright
+       2026
        <span class="split">
         <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
   <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
